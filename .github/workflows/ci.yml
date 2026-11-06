@@ -1,0 +1,49 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  certs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pinned python dependencies
+        run: pip install -r requirements.txt
+      - name: Producer self-tests and regeneration
+        run: |
+          python3 analysis/bilin.py
+          python3 analysis/make_decomposition_certs.py
+          python3 analysis/flattenings.py
+          python3 analysis/sumineq.py
+          python3 analysis/search_unsat.py
+      - name: Independent certificate verification
+        run: python3 tools/check_certs.py
+      - name: Ledger lint, generated-view drift, dep/out emission
+        run: |
+          python3 tools/ledger_lint.py
+          python3 tools/ledger_lint.py
+          git diff --exit-code CLAIMS.md dep/out
+      - name: dep_lint (DEP&CC 2.0 rule subset)
+        run: python3 tools/dep_lint.py
+      - name: Search selftest (declared timeouts)
+        run: python3 search/enc.py --selftest
+
+  lean:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Lean package (pinned toolchain, core-only profile)
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: lean
+      - name: Archive axiom ledger extraction
+        run: |
+          mkdir -p dep/out
+          cd lean && lake build 2>&1 | grep -E "does not depend|depends on axioms" > ../dep/out/axioms_checkstrassen.txt || true
+          cd .. && cat dep/out/axioms_checkstrassen.txt
