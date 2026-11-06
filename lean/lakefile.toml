@@ -1,0 +1,10 @@
+name = "Omega"
+version = "0.1.0"
+defaultTargets = ["Omega"]
+
+[[lean_lib]]
+name = "Omega"
+
+# Core-Lean-only build (gap G-0006): Mathlib integration is planned; until then the
+# package pins the toolchain in lean-toolchain and builds with zero errors and zero
+# admitted tokens (DEP&CC 2.0 Chapters 6.3 and 19.1).
