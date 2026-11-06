@@ -1,0 +1,14 @@
+{
+  "R": 2,
+  "field": "F_2",
+  "h": 0,
+  "label": "selftest_rank2_unsat_vs_enumeration",
+  "mode": "exact_rank",
+  "solver": {
+    "name": "z3",
+    "timeout_seconds": 60,
+    "version": "5.3.3"
+  },
+  "status": "unsat",
+  "wall_seconds": 0.008
+}

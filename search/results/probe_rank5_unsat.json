@@ -1,0 +1,14 @@
+{
+  "R": 5,
+  "field": "F_2",
+  "h": 0,
+  "label": "probe_rank5_unsat",
+  "mode": "exact_rank",
+  "solver": {
+    "name": "z3",
+    "timeout_seconds": 240,
+    "version": "5.3.3"
+  },
+  "status": "unsat",
+  "wall_seconds": 1.427
+}
