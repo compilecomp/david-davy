@@ -1,0 +1,302 @@
+{
+  "bound": 7,
+  "claim_id": "C-0002",
+  "created": "2026-11-07",
+  "field": "F_2",
+  "invariant": "rank",
+  "note": "Same scheme reduced modulo 2: Z -> F_2 is a ring homomorphism, so the identity over Z implies the identity over F_2 (justification: algebra:ring). The producer and the checker both re-verify over F_2 directly.",
+  "producer": {
+    "arithmetic": "exact (fractions.Fraction over Q, residues over F_p)",
+    "module": "analysis/bilin.py + analysis/make_decomposition_certs.py"
+  },
+  "schema": "omega.cert.decomposition/1",
+  "tensor": {
+    "blocks": [
+      [
+        2,
+        2,
+        2
+      ]
+    ],
+    "entry_convention": "dep/conventions.yaml#conv.mm_entry",
+    "kind": "direct_sum_of_matrix_mult"
+  },
+  "terms": [
+    {
+      "u": [
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ]
+      ],
+      "v": [
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ]
+      ],
+      "w": [
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "u": [
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ]
+      ],
+      "v": [
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "w": [
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          -1
+        ]
+      ]
+    },
+    {
+      "u": [
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "v": [
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          -1
+        ]
+      ],
+      "w": [
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "u": [
+        [
+          0,
+          1,
+          1,
+          1
+        ]
+      ],
+      "v": [
+        [
+          0,
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "w": [
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "u": [
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ]
+      ],
+      "v": [
+        [
+          0,
+          1,
+          1,
+          1
+        ]
+      ],
+      "w": [
+        [
+          0,
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "u": [
+        [
+          0,
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "v": [
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ]
+      ],
+      "w": [
+        [
+          0,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "u": [
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          -1
+        ]
+      ],
+      "v": [
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ]
+      ],
+      "w": [
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    }
+  ],
+  "verifier": {
+    "independence": "independent re-implementation; does not import analysis/ (standards.md section 5.3)",
+    "tool": "tools/check_certs.py"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "bound": {
+    "digits": 30,
+    "enclosure_hi": "2.858584539648584406977511276294",
+    "enclosure_lo": "2.858584539648584406977511276291",
+    "symbolic": "omega <= 3*tau"
+  },
+  "claim_id": "C-0007",
+  "created": "2026-11-07",
+  "instance": {
+    "border_rank_input": {
+      "evidence": "certs/decompositions/222sum122_Q_11.json",
+      "evidence_claim": "C-0006",
+      "r": 11
+    },
+    "nontriviality": "n_i m_i p_i > 1 for i = 0 (8 > 1)",
+    "products_nmp": [
+      8,
+      4
+    ],
+    "shapes": [
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        1,
+        2,
+        2
+      ]
+    ],
+    "tau_equation": "8^tau + 4^tau = 11"
+  },
+  "kind": "asymptotic_sum_inequality",
+  "producer": {
+    "arithmetic": "certified (mpmath 60-digit bisection, outward rounding, see dep/numerics.yaml#num.tau_enclosure)",
+    "module": "analysis/sumineq.py"
+  },
+  "schema": "omega.cert.analysis/1",
+  "tau_enclosure": {
+    "digits": 30,
+    "hi": "0.952861513216194802325837092098",
+    "lo": "0.952861513216194802325837092097"
+  },
+  "theorem": {
+    "source": "ext:alman2026speedup Theorem 1.1 (asymptotic sum inequality, attributing ext:schonhage1981)",
+    "statement": "omega <= 3*tau",
+    "status_of_use": "external, carried by gap G-0002"
+  },
+  "verifier": {
+    "independence": "recomputes f at the stored edges at 80 digits and requires f(lo) < 0 < f(hi)",
+    "tool": "tools/check_certs.py"
+  }
+}

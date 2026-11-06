@@ -1,0 +1,34 @@
+{
+  "base": {
+    "decomposition_cert": "certs/decompositions/222_Q_7.json",
+    "field": "Q",
+    "rank_bound": 7,
+    "tensor": "<2,2,2>"
+  },
+  "bound": {
+    "decimal_display": "2.807354922057604 (truncated display of the enclosure; the enclosure is authoritative)",
+    "digits": 30,
+    "enclosure_hi": "2.807354922057604107441969317232",
+    "enclosure_lo": "2.807354922057604107441969317231",
+    "symbolic": "omega <= log_2(7)"
+  },
+  "chain": "R(<2,2,2>) <= 7 implies R(<2^N,2^N,2^N>) <= 7^N for every N >= 1 by submultiplicativity; omega <= log_2(7). The implication is recorded under gap G-0001 and is not discharged by this certificate; the arithmetic of the bound is.",
+  "claim_id": "C-0004",
+  "created": "2026-11-07",
+  "hypotheses": {
+    "G-0001": [
+      "H1 submultiplicativity",
+      "H2 definition of omega"
+    ]
+  },
+  "kind": "tensor_power_bound",
+  "producer": {
+    "arithmetic": "certified (mpmath 60-digit working precision, outward rounding, see dep/numerics.yaml#num.log2_7)",
+    "module": "analysis/sumineq.py"
+  },
+  "schema": "omega.cert.analysis/1",
+  "verifier": {
+    "independence": "recomputation at 80 digits and containment check",
+    "tool": "tools/check_certs.py"
+  }
+}

@@ -1,0 +1,426 @@
+{
+  "bound": 7,
+  "claim_id": "C-0018",
+  "created": "2026-11-07",
+  "field": "F_2",
+  "invariant": "border_rank",
+  "note": "Proper border witness (h = 1): the sum equals eps^1 * T + O(eps^2) over F_2[eps]/(eps^2), so the constant part vanishes and the eps part equals T.",
+  "order_h": 1,
+  "producer": {
+    "module": "search/enc.py",
+    "search": "z3 5.3.3 under declared timeout; model re-verified by exact GF(2)[eps] arithmetic before emission"
+  },
+  "ring": {
+    "d": 2,
+    "name": "F_2[eps]/(eps^2)"
+  },
+  "schema": "omega.cert.border/1",
+  "tensor": {
+    "entry_convention": "dep/conventions.yaml#conv.mm_entry",
+    "format": [
+      2,
+      2,
+      2
+    ],
+    "kind": "matrix_mult"
+  },
+  "term_format": "u[r][idx][lev]: coefficient of eps^lev of the r-th term's A-vector, idx in [4], lev in {0,1}; likewise v (B-index), w (C-index)",
+  "terms": [
+    {
+      "u": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "v": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "w": [
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "u": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "v": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "w": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "u": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "v": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "w": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "u": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "v": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "w": [
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "u": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "v": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "w": [
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "u": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "v": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "w": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "u": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "v": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "w": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    }
+  ],
+  "verifier": {
+    "independence": "independent GF(2)[eps]/(eps^2) arithmetic; does not import search/ or z3",
+    "tool": "tools/check_certs.py"
+  }
+}

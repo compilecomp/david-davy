@@ -1,0 +1,39 @@
+{
+  "claim_id": "C-0014",
+  "conclusion": "R_F2(<2,2,2>) >= 3",
+  "created": "2026-11-07",
+  "field": "F_2",
+  "kind": "exhaustive_enumeration",
+  "note": "Corroborated from above by certs/flattenings/222_Q_rank4.json (rank >= 4 over Q, and the same flattening matrix over F_2) and by C-0009 (rank >= 7 over every field, literature). This cert exists to validate the unsat format, not to advance the record.",
+  "producer": {
+    "arithmetic": "exact (booleans)",
+    "module": "analysis/search_unsat.py"
+  },
+  "result": {
+    "achieved_byte_count": 4964626,
+    "target_achieved": false,
+    "target_byte": 9511602980495818785
+  },
+  "runtime_seconds": 4.725,
+  "schema": "omega.cert.unsat/1",
+  "search_space": {
+    "assignments_reduced": "1 (empty) + 4096 (one term) + 4096^2 (two terms, as XOR pairs)",
+    "justification": "S1, S2 in analysis/search_unsat.py module docstring",
+    "term_parameterization": "u, v, w in F_2^4 (all 2^12 triples tabulated)",
+    "terms_max": 2
+  },
+  "tensor": {
+    "entry_convention": "dep/conventions.yaml#conv.mm_entry",
+    "format": [
+      2,
+      2,
+      2
+    ],
+    "kind": "matrix_mult",
+    "packing": "64-bit word over the full 4x4x4 index space; bit ((ia*4 + ib)*4 + ic) = entry with A-index ia, B-index ib, C-index ic; all 64 entries are packed, so a candidate must match the target everywhere including the 56 vanishing entries"
+  },
+  "verifier": {
+    "independence": "re-runs the enumeration from the cert parameters with its own packing and compares",
+    "tool": "tools/check_certs.py"
+  }
+}

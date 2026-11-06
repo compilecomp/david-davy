@@ -1,0 +1,46 @@
+{
+  "claim_id": "C-0003",
+  "computations": [
+    {
+      "consequence": "R_Q(<2,2,2>) >= 4",
+      "derivation": "D1 in analysis/flattenings.py",
+      "exact_rank": 4,
+      "grouping": "A | (B,C)",
+      "kind": "ordinary_flattening",
+      "matrix_shape": [
+        4,
+        16
+      ]
+    },
+    {
+      "codomain_dim": 24,
+      "consequence": "R_Q(<2,2,2>) >= ceil(16/3) = 6",
+      "derivation": "D2 in analysis/flattenings.py",
+      "domain_dim": 16,
+      "exact_rank": 16,
+      "kind": "koszul_p1"
+    }
+  ],
+  "consequence": "R_Q(<2,2,2>) >= max(4, 6) = 6",
+  "created": "2026-11-07",
+  "field": "Q",
+  "note": "Koszul bound D2 is derived in-module only for p=1, dim A = 4; the general normalization is out of scope (module docstring).",
+  "producer": {
+    "arithmetic": "exact (fractions.Fraction)",
+    "module": "analysis/flattenings.py"
+  },
+  "schema": "omega.cert.flattening/1",
+  "tensor": {
+    "entry_convention": "dep/conventions.yaml#conv.mm_entry",
+    "format": [
+      2,
+      2,
+      2
+    ],
+    "kind": "matrix_mult"
+  },
+  "verifier": {
+    "independence": "independent re-implementation of both matrices and of the elimination",
+    "tool": "tools/check_certs.py"
+  }
+}

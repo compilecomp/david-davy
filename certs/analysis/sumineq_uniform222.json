@@ -1,0 +1,59 @@
+{
+  "bound": {
+    "closed_form": "tau = log_8(7) = log_2(7)/3 exactly",
+    "digits": 30,
+    "enclosure_hi": "2.807354922057604107441969317232",
+    "enclosure_lo": "2.807354922057604107441969317229",
+    "symbolic": "omega <= 3*tau = log_2(7)"
+  },
+  "claim_id": "C-0008",
+  "consistency_check": {
+    "against": "certs/analysis/strassen_power_bound.json",
+    "requirement": "the two bounds agree within the intersection of their enclosures"
+  },
+  "created": "2026-11-07",
+  "instance": {
+    "border_rank_input": {
+      "evidence": "certs/decompositions/222sum222_Q_14.json",
+      "evidence_claim": "C-0005",
+      "r": 14
+    },
+    "nontriviality": "n_i m_i p_i = 8 > 1",
+    "products_nmp": [
+      8,
+      8
+    ],
+    "shapes": [
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        2,
+        2,
+        2
+      ]
+    ],
+    "tau_equation": "2 * 8^tau = 14"
+  },
+  "kind": "asymptotic_sum_inequality",
+  "producer": {
+    "arithmetic": "certified (as above)",
+    "module": "analysis/sumineq.py"
+  },
+  "schema": "omega.cert.analysis/1",
+  "tau_enclosure": {
+    "digits": 30,
+    "hi": "0.935784974019201369147323105744",
+    "lo": "0.935784974019201369147323105743"
+  },
+  "theorem": {
+    "source": "ext:alman2026speedup Theorem 1.1",
+    "statement": "omega <= 3*tau",
+    "status_of_use": "external, carried by gap G-0002"
+  },
+  "verifier": {
+    "tool": "tools/check_certs.py"
+  }
+}
