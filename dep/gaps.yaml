@@ -1,0 +1,101 @@
+# Gap register. DEP&CC 2.0 Chapters 7 (Law 7), 23.6, 33.2 rule DEP-LINT-GAP-EXPIRY.
+# A registered gap downgrades the claim status of every node in its blast radius. Gaps are never silent.
+gaps:
+  - id: G-0001
+    node: C-0004
+    missing: >
+      The tensor-power argument from R(<2,2,2>) <= 7 to omega <= log_2 7 uses
+      submultiplicativity R(S tensor T) <= R(S) R(T) and the definition of omega as an
+      infimum over powers. Neither is formalized in this repository; the inference is
+      recorded, not discharged.
+    blast_radius: [C-0004, certs/analysis/strassen_power_bound.json]
+    owner: repo-maintainer
+    ticket: OMEGA-1
+    opened: 2026-11-07
+    expires: 2027-05-07
+    status: open
+    downgrades: {C-0004: proved-modulo}
+    target: 'Omega/Analysis/SumIneq.lean or Omega/Tensor/Basic.lean (Mathlib layer)'
+
+  - id: G-0002
+    node: C-0007
+    missing: >
+      The implication from a certified border-rank bound for a direct sum of matrix
+      multiplication tensors to omega <= 3 tau is the asymptotic sum inequality
+      (ext:alman2026speedup Theorem 1.1, attributing ext:schonhage1981). It is cited,
+      not formalized. The numeric enclosure of tau is certified; the implication is not.
+    blast_radius: [C-0007, C-0008, certs/analysis/sumineq_uniform222.json, certs/analysis/sumineq_mixed.json]
+    owner: repo-maintainer
+    ticket: OMEGA-2
+    opened: 2026-11-07
+    expires: 2027-05-07
+    status: open
+    downgrades: {C-0007: proved-modulo, C-0008: proved-modulo}
+    target: 'Omega/Analysis/SumIneq.lean'
+
+  - id: G-0003
+    node: literature-import-rows
+    missing: >
+      Statement-fidelity audit (DEP&CC 2.0 Chapter 19.5) against the pinned sources for
+      every literature-imported row: Alder-Strassen 1981, Laderman 1976, DWZ 2023,
+      WXXZ 2024, Alman et al. 2025, Christandl-Vrana-Zuiddam, Strassen 1987. Abstracts of
+      the three arXiv records were read on 2026-11-07; page-level pinpoints and hypothesis
+      discharge at the point of use are outstanding.
+    blast_radius: [C-0009, C-0010, C-0011, C-0012, C-0013]
+    owner: repo-maintainer
+    ticket: OMEGA-3
+    opened: 2026-11-07
+    expires: 2027-05-07
+    status: open
+    downgrades: {C-0009: proved-modulo, C-0010: proved-modulo, C-0011: proved-modulo, C-0012: proved-modulo, C-0013: proved-modulo}
+    target: 'lit/ notes per source, then upgrade rows to proved'
+
+  - id: G-0004
+    node: lean/Omega/Tensor
+    missing: >
+      The kernel-checked theorem strassen7_full_space covers the fixed 2x2x2 integer
+      instance by literal enumeration of all 64 index triples. The general statement
+      over an arbitrary field and symbolic sizes (tensor as an element of a tensor
+      product of finite free modules, equality on the whole space) is not formalized;
+      the Nat-index encoding does not scale past the enumerated instance.
+    blast_radius: [lean/Omega/Tensor/]
+    owner: repo-maintainer
+    ticket: OMEGA-4
+    opened: 2026-11-07
+    expires: 2027-05-07
+    status: open
+    downgrades: {}
+    target: 'Mathlib layer: Fin-indexed tensors, tensor products, degeneration'
+
+  - id: G-0005
+    node: search
+    missing: >
+      UNSAT answers from z3 are trusted without proof logs at seed stage. z3 5.3.3 with a
+      declared timeout is a TCB entry (DEP&CC 2.0 Chapters 19.3 and 19.8). A DRAT/LRAT
+      export pipeline (kissat/cadical or sat2drat) is planned; until then every
+      solver-derived UNSAT row stays at status empirical and every SAT model is
+      re-verified exactly in Python before use.
+    blast_radius: [C-0015, search/results/]
+    owner: repo-maintainer
+    ticket: OMEGA-5
+    opened: 2026-11-07
+    expires: 2027-05-07
+    status: open
+    downgrades: {C-0015: empirical}
+    target: 'search/enc.py DRAT export; certs/unsat/'
+
+  - id: G-0006
+    node: lean
+    missing: >
+      The Lean package builds against core Lean 4 only (pinned v4.15.0). Mathlib is not
+      integrated; modules Omega/Tensor/{Border,Subrank}.lean, Omega/Spectrum/*,
+      Omega/Analysis/*, Omega/Barriers/* are statement drafts in comments with status
+      placeholder and are unreferenced by DEP-0 nodes, per DEP&CC 2.0 Chapter 5.5.
+    blast_radius: [lean/Omega/]
+    owner: repo-maintainer
+    ticket: OMEGA-6
+    opened: 2026-11-07
+    expires: 2027-05-07
+    status: open
+    downgrades: {}
+    target: 'lakefile require mathlib + lake exe cache get, then port drafts'

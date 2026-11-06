@@ -1,0 +1,478 @@
+[
+  {
+    "annotation": {
+      "CLASS": "DEP-0",
+      "COMPLETE": "complete",
+      "DEPENDS": [],
+      "EVIDENCE": "computation:certified:222_Q_7.json checked by tools/check_certs.py (exact Fraction arithmetic) and independently by analysis/bilin.py",
+      "GAP": [
+        "G-0003"
+      ],
+      "HYP": "none beyond the field axioms of Q",
+      "ID": "C-0001",
+      "OWNER": "repo-maintainer",
+      "STATUS": "verified-numeric",
+      "WHAT": "Upper bound on the rank of the 2x2 matrix multiplication tensor over Q by explicit 7-term decomposition.",
+      "WHY": "Entry ticket for the certificate pipeline; base case of every tensor-power and direct-sum construction in this repository."
+    },
+    "cert": "certs/decompositions/222_Q_7.json",
+    "checker": "tools/check_certs.py",
+    "field": "Q",
+    "gaps": [
+      "G-0003"
+    ],
+    "id": "C-0001",
+    "provenance": "ext:strassen1969 (scheme); page-level pinpoint pending G-0003",
+    "statement": "R_Q(<2,2,2>) <= 7: there exist 7 triples (u_r, v_r, w_r) with u_r: Z^4-indexed integer vectors, sum_r u_r (x) v_r (x) w_r = <2,2,2> exactly over the rationals (in fact over Z)",
+    "status": "verified-numeric"
+  },
+  {
+    "annotation": {
+      "CLASS": "DEP-0",
+      "COMPLETE": "complete",
+      "DEPENDS": [
+        "C-0001"
+      ],
+      "EVIDENCE": "computation:certified:222_F2_7.json checked by tools/check_certs.py (exact GF(2) arithmetic)",
+      "GAP": "none",
+      "HYP": "none beyond the field axioms of F_2",
+      "ID": "C-0002",
+      "OWNER": "repo-maintainer",
+      "STATUS": "verified-numeric",
+      "WHAT": "The Strassen decomposition is valid over the field with two elements.",
+      "WHY": "F_2 is the target field of the border-rank search in search/."
+    },
+    "cert": "certs/decompositions/222_F2_7.json",
+    "checker": "tools/check_certs.py",
+    "field": "F_2",
+    "gaps": [],
+    "id": "C-0002",
+    "provenance": "derived from C-0001 by reduction modulo 2 (justification: algebra:ring; the scheme is defined over Z and Z -> F_2 is a ring homomorphism)",
+    "statement": "R_F2(<2,2,2>) <= 7: the same 7-term decomposition, reduced modulo 2, is an exact decomposition over the field with 2 elements",
+    "status": "verified-numeric"
+  },
+  {
+    "annotation": {
+      "CLASS": "DEP-1",
+      "COMPLETE": "complete",
+      "DEPENDS": [],
+      "EVIDENCE": "computation:certified:222_Q_rank4.json; rank computed by exact Fraction Gaussian elimination in analysis/flattenings.py, re-derived by an independent elimination in tools/check_certs.py",
+      "GAP": [
+        "G-0003"
+      ],
+      "HYP": "flattening rank <= tensor rank (external standard fact, audit pending G-0003)",
+      "ID": "C-0003",
+      "OWNER": "repo-maintainer",
+      "STATUS": "verified-numeric",
+      "WHAT": "Flattening rank computation for the 2x2 matrix multiplication tensor, giving a rank lower bound of 4.",
+      "WHY": "Exercises the flattening certificate format end to end at a size where the answer is checkable by hand."
+    },
+    "cert": "certs/flattenings/222_Q_rank4.json",
+    "checker": "tools/check_certs.py",
+    "field": "Q",
+    "gaps": [
+      "G-0003"
+    ],
+    "id": "C-0003",
+    "provenance": "flattening bound; general reference to be pinned and audited under G-0003 (candidate: Landsberg, Geometry and Complexity Theory)",
+    "statement": "the (A tensor B) against C flattening of <2,2,2>_Q has exact rank 4 and the p=1 Koszul flattening has exact rank 16; by the in-module derivations D1 and D2 of analysis/flattenings.py this yields R_Q(<2,2,2>) >= 4 and R_Q(<2,2,2>) >= 6",
+    "status": "verified-numeric"
+  },
+  {
+    "annotation": {
+      "CLASS": "DEP-0",
+      "COMPLETE": "gap-declared",
+      "DEPENDS": [
+        "C-0001"
+      ],
+      "EVIDENCE": "computation:certified:222_Q_7.json plus certified enclosure of log_2 7 (mpmath 60-bit working precision, outward rounding)",
+      "GAP": [
+        "G-0001"
+      ],
+      "HYP": "H1: R(S tensor T) <= R(S) R(T); H2: omega = log_2 RA(<2,2,2>) with RA the asymptotic rank (both carried by G-0001)",
+      "ID": "C-0004",
+      "OWNER": "repo-maintainer",
+      "STATUS": "proved-modulo",
+      "WHAT": "Exponent upper bound omega <= log_2 7 from the certified 7-term decomposition by tensor powers.",
+      "WHY": "Demonstrates the analysis-certificate format: exact decomposition evidence plus a certified numeric enclosure of the exponent."
+    },
+    "cert": "certs/analysis/strassen_power_bound.json",
+    "checker": "tools/check_certs.py",
+    "field": "any",
+    "gaps": [
+      "G-0001",
+      "G-0003"
+    ],
+    "id": "C-0004",
+    "provenance": "ext:strassen1969 for the base decomposition; tensor-power inference recorded under gap G-0001",
+    "statement": "omega <= log_2(7) < 2.8073549221",
+    "status": "proved-modulo"
+  },
+  {
+    "annotation": {
+      "CLASS": "DEP-1",
+      "COMPLETE": "complete",
+      "DEPENDS": [
+        "C-0001"
+      ],
+      "EVIDENCE": "computation:certified:222sum222_Q_14.json",
+      "GAP": "none",
+      "HYP": "none",
+      "ID": "C-0005",
+      "OWNER": "repo-maintainer",
+      "STATUS": "verified-numeric",
+      "WHAT": "Direct-sum decomposition certificate exercising the direct-sum tensor format.",
+      "WHY": "Input instance for the asymptotic sum inequality pipeline (C-0007)."
+    },
+    "cert": "certs/decompositions/222sum222_Q_14.json",
+    "checker": "tools/check_certs.py",
+    "field": "Q",
+    "gaps": [],
+    "id": "C-0005",
+    "provenance": "constructed by us, 2026-11-07, from C-0001 (justification: rule:substitution; the direct sum of two decompositions is a decomposition of the direct sum)",
+    "statement": "R_Q(<2,2,2> direct-sum <2,2,2>) <= 14: a 14-term exact decomposition of the direct-sum tensor (block-diagonal embedding) over Q",
+    "status": "verified-numeric"
+  },
+  {
+    "annotation": {
+      "CLASS": "DEP-1",
+      "COMPLETE": "complete",
+      "DEPENDS": [
+        "C-0001"
+      ],
+      "EVIDENCE": "computation:certified:222sum122_Q_11.json",
+      "GAP": "none",
+      "HYP": "none",
+      "ID": "C-0006",
+      "OWNER": "repo-maintainer",
+      "STATUS": "verified-numeric",
+      "WHAT": "Mixed-shape direct-sum decomposition certificate with unequal summand sizes.",
+      "WHY": "Input instance that makes the tau solver of the asymptotic sum inequality pipeline solve a genuinely transcendental equation."
+    },
+    "cert": "certs/decompositions/222sum122_Q_11.json",
+    "checker": "tools/check_certs.py",
+    "field": "Q",
+    "gaps": [],
+    "id": "C-0006",
+    "provenance": "constructed by us, 2026-11-07 (justification: rule:substitution)",
+    "statement": "R_Q(<2,2,2> direct-sum <1,2,2>) <= 11: an 11-term exact decomposition over Q (7 terms from C-0001 plus 4 terms for <1,2,2>)",
+    "status": "verified-numeric"
+  },
+  {
+    "annotation": {
+      "CLASS": "DEP-1",
+      "COMPLETE": "gap-declared",
+      "DEPENDS": [
+        "C-0006"
+      ],
+      "EVIDENCE": "computation:certified:sumineq_mixed.json; tau enclosure by mpmath bisection with outward rounding at declared precision",
+      "GAP": [
+        "G-0002"
+      ],
+      "HYP": "H1: the asymptotic sum inequality holds as stated in ext:alman2026speedup Theorem 1.1 (carried by G-0002); H2: the border-rank input R <= 11, carried by C-0006 at verified-numeric",
+      "ID": "C-0007",
+      "OWNER": "repo-maintainer",
+      "STATUS": "proved-modulo",
+      "WHAT": "Application of the asymptotic sum inequality to a certified mixed-shape direct-sum instance, with a certified enclosure of tau.",
+      "WHY": "Pipeline validation for WS1 step 2: the constraint system (shapes, border-rank input, tau equation, enclosure) is machine-checked even though the theorem itself is external."
+    },
+    "cert": "certs/analysis/sumineq_mixed.json",
+    "checker": "tools/check_certs.py",
+    "field": "any",
+    "gaps": [
+      "G-0002"
+    ],
+    "id": "C-0007",
+    "provenance": "ext:alman2026speedup Theorem 1.1 (asymptotic sum inequality, attributing ext:schonhage1981); instance and enclosure computed by us, 2026-11-07",
+    "statement": "if R_Q(<2,2,2> + <1,2,2>) <= 11 then omega <= 3 tau where 8^tau + 4^tau = 11; certified enclosure of 3 tau at 30 digits: [2.858584539648584406977511276291, 2.858584539648584406977511276294], re-verified in CI at 80 digits",
+    "status": "proved-modulo"
+  },
+  {
+    "annotation": {
+      "CLASS": "DEP-1",
+      "COMPLETE": "gap-declared",
+      "DEPENDS": [
+        "C-0005",
+        "C-0004"
+      ],
+      "EVIDENCE": "computation:certified:sumineq_uniform222.json",
+      "GAP": [
+        "G-0002"
+      ],
+      "HYP": "as C-0007",
+      "ID": "C-0008",
+      "OWNER": "repo-maintainer",
+      "STATUS": "proved-modulo",
+      "WHAT": "Asymptotic sum inequality on a uniform direct sum; the tau equation has the closed form tau = log_8 7 = log_2 7 / 3.",
+      "WHY": "Consistency check: two independent routes (tensor power, asymptotic sum inequality) must produce the same bound at certified precision."
+    },
+    "cert": "certs/analysis/sumineq_uniform222.json",
+    "checker": "tools/check_certs.py",
+    "field": "any",
+    "gaps": [
+      "G-0002"
+    ],
+    "id": "C-0008",
+    "provenance": "ext:alman2026speedup Theorem 1.1; instance constructed by us, 2026-11-07; cross-check against C-0004",
+    "statement": "if R_Q(2 copies of <2,2,2>) <= 14 then omega <= 3 tau where 2 * 8^tau = 14, giving omega <= log_2(7) < 2.8073549221; agrees with C-0004 to the certified precision",
+    "status": "proved-modulo"
+  },
+  {
+    "annotation": {
+      "CLASS": "DEP-0",
+      "COMPLETE": "gap-declared",
+      "DEPENDS": [],
+      "EVIDENCE": "ext:alderstrassen1981",
+      "GAP": [
+        "G-0003"
+      ],
+      "HYP": "H1: the Alder-Strassen bound R >= 2 dim(A) - 1 for the multiplication tensor of a semisimple-free algebra, with hypotheses as in the source (audit pending G-0003)",
+      "ID": "C-0009",
+      "OWNER": "repo-maintainer",
+      "STATUS": "proved-modulo",
+      "WHAT": "Rank lower bound for the 2x2 matrix multiplication tensor over an arbitrary field.",
+      "WHY": "Together with C-0001 it pins R(<2,2,2>) = 7, the base case of the whole program."
+    },
+    "cert": "none",
+    "checker": "none",
+    "field": "any",
+    "gaps": [
+      "G-0003"
+    ],
+    "id": "C-0009",
+    "provenance": "ext:alderstrassen1981 (lower bound for the total rank of the algebra of 2x2 matrices); audit pending G-0003",
+    "statement": "for every field F: R_F(<2,2,2>) >= 7",
+    "status": "proved-modulo"
+  },
+  {
+    "annotation": {
+      "CLASS": "DEP-1",
+      "COMPLETE": "gap-declared",
+      "DEPENDS": [],
+      "EVIDENCE": "ext:laderman1976",
+      "GAP": [
+        "G-0003"
+      ],
+      "HYP": "H1: the published scheme is bilinear with integer coefficients (audit pending G-0003)",
+      "ID": "C-0010",
+      "OWNER": "repo-maintainer",
+      "STATUS": "proved-modulo",
+      "WHAT": "Classical 23-multiplication upper bound for 3x3 matrix multiplication.",
+      "WHY": "Next certificate target after the 2x2 pipeline; the encoding task is assigned to search/."
+    },
+    "cert": "none",
+    "checker": "none",
+    "field": "any",
+    "gaps": [
+      "G-0003"
+    ],
+    "id": "C-0010",
+    "provenance": "ext:laderman1976; the scheme is division-free (bilinear), hence valid over every commutative ring; audit and machine encoding of the 23 terms pending G-0003",
+    "statement": "for every field F: R_F(<3,3,3>) <= 23",
+    "status": "proved-modulo"
+  },
+  {
+    "annotation": {
+      "CLASS": "DEP-0",
+      "COMPLETE": "gap-declared",
+      "DEPENDS": [],
+      "EVIDENCE": "ext:alman2025asymmetry",
+      "GAP": [
+        "G-0003"
+      ],
+      "HYP": "H1: correctness of the laser-method analysis and the numerical optimization in the source (audit pending G-0003)",
+      "ID": "C-0011",
+      "OWNER": "repo-maintainer",
+      "STATUS": "proved-modulo",
+      "WHAT": "Record upper bound on the matrix multiplication exponent as of 2026-11-07.",
+      "WHY": "The reproduction target of workstream WS1 step 1 (RESEARCH_PLAN.md); the pipeline must re-derive published exponents to 4 decimals before attacking loss terms."
+    },
+    "cert": "none",
+    "checker": "none",
+    "field": "any",
+    "gaps": [
+      "G-0003"
+    ],
+    "id": "C-0011",
+    "provenance": "ext:alman2025asymmetry (arXiv:2404.16349v3, abstract, SODA 2025), numerics of ext:dupont2026; audit pending G-0003",
+    "statement": "omega < 2.371177",
+    "status": "proved-modulo"
+  },
+  {
+    "annotation": {
+      "CLASS": "DEP-1",
+      "COMPLETE": "gap-declared",
+      "DEPENDS": [],
+      "EVIDENCE": "ext:wxxz2023alpha",
+      "GAP": [
+        "G-0003"
+      ],
+      "HYP": "as C-0011",
+      "ID": "C-0012",
+      "OWNER": "repo-maintainer",
+      "STATUS": "proved-modulo",
+      "WHAT": "Exponent bound of the Alpha-to-Omega paper, superseded by C-0011.",
+      "WHY": "The entry point named by RESEARCH_PLAN.md for WS1; reproduction of this analysis is the WS1 step 1 kill-criterion yardstick."
+    },
+    "cert": "none",
+    "checker": "none",
+    "field": "any",
+    "gaps": [
+      "G-0003"
+    ],
+    "id": "C-0012",
+    "provenance": "ext:wxxz2023alpha (arXiv:2307.07970v2, abstract, SODA 2024); audit pending G-0003",
+    "statement": "omega <= 2.371552",
+    "status": "proved-modulo"
+  },
+  {
+    "annotation": {
+      "CLASS": "DEP-2",
+      "COMPLETE": "gap-declared",
+      "DEPENDS": [],
+      "EVIDENCE": "ext:wxxz2023alpha (secondary); ext:dwz2023 (primary, unread)",
+      "GAP": [
+        "G-0003"
+      ],
+      "HYP": "as C-0011",
+      "ID": "C-0013",
+      "OWNER": "repo-maintainer",
+      "STATUS": "proved-modulo",
+      "WHAT": "Exponent bound of the asymmetric-hashing paper.",
+      "WHY": "Historical marker of the loss term removed by the 2023-2024 line that WS1 attacks."
+    },
+    "cert": "none",
+    "checker": "none",
+    "field": "any",
+    "gaps": [
+      "G-0003"
+    ],
+    "id": "C-0013",
+    "provenance": "ext:wxxz2023alpha abstract (prior-bound attribution); primary source ext:dwz2023 not yet read; audit pending G-0003",
+    "statement": "omega <= 2.371866, proved by Duan, Wu, Zhou (FOCS 2023) and stated as the prior record in ext:wxxz2023alpha",
+    "status": "proved-modulo"
+  },
+  {
+    "annotation": {
+      "CLASS": "DEP-1",
+      "COMPLETE": "complete",
+      "DEPENDS": [],
+      "EVIDENCE": "computation:certified:222_F2_rank_ge3.json; verifier re-runs the enumeration and compares counts",
+      "GAP": "none",
+      "HYP": "the enumeration covers every assignment of the declared variable set (declared in the cert, re-checked in CI by re-running the enumeration)",
+      "ID": "C-0014",
+      "OWNER": "repo-maintainer",
+      "STATUS": "verified-numeric",
+      "WHAT": "Exhaustive-enumeration refutation at rank 2, exercising the omega.cert.unsat format without solver trust.",
+      "WHY": "Tier 0 of the search trust ladder: enumeration, then SMT with TCB, then DRAT certificates."
+    },
+    "cert": "certs/unsat/222_F2_rank_ge3.json",
+    "checker": "tools/check_certs.py",
+    "field": "F_2",
+    "gaps": [],
+    "id": "C-0014",
+    "provenance": "computed by us, 2026-11-07, tools/search_unsat.py; corroboration: C-0003 gives the stronger bound 4 over Q, and ext:alderstrassen1981 gives 7 over every field",
+    "statement": "R_F2(<2,2,2>) >= 3: no decomposition into at most 2 rank-1 terms exists over F_2, established by exhaustive enumeration of all 1 + 2^12 + 2^24 candidate decompositions (finite domain and packing justification declared in the cert)",
+    "status": "verified-numeric"
+  },
+  {
+    "annotation": {
+      "CLASS": "DEP-1",
+      "COMPLETE": "partial",
+      "DEPENDS": [],
+      "EVIDENCE": "search/results/probe_rank5_unsat.json (solver record with declared timeout)",
+      "GAP": [
+        "G-0005"
+      ],
+      "HYP": "H1: z3 5.3.3 unsat under timeout is correct (TCB, G-0005)",
+      "ID": "C-0015",
+      "OWNER": "repo-maintainer",
+      "STATUS": "empirical",
+      "WHAT": "SMT-based lower-bound evidence at rank 5, below the known value 7.",
+      "WHY": "Calibrates the border-rank search encoding against a known answer before scaling."
+    },
+    "cert": "none",
+    "checker": "search/enc.py",
+    "field": "F_2",
+    "gaps": [
+      "G-0005"
+    ],
+    "id": "C-0015",
+    "provenance": "search by us, 2026-11-07, search/enc.py with z3 5.3.3, timeout declared in search/results/; DRAT certificate pending G-0005",
+    "statement": "conditional on the z3 5.3.3 UNSAT answer under the declared timeout (G-0005, TCB): R_F2(<2,2,2>) >= 6, i.e. no decomposition into 5 rank-1 terms exists over F_2",
+    "status": "empirical"
+  },
+  {
+    "annotation": {
+      "CLASS": "DEP-0",
+      "COMPLETE": "complete",
+      "DEPENDS": [
+        "C-0001"
+      ],
+      "EVIDENCE": "lean/Omega/Certs/CheckStrassen.lean; axiom dump dep/out/axioms_checkstrassen.txt (zero axioms); statement-fidelity map doc/fidelity-checkstrassen.md",
+      "GAP": "none",
+      "HYP": "none; the theorem is the literal 64-entry equality at the fixed 2x2x2 instance",
+      "ID": "C-0016",
+      "OWNER": "repo-maintainer",
+      "STATUS": "machine-checked",
+      "WHAT": "Machine-checked basis-agreement theorem for the Strassen scheme over the integers.",
+      "WHY": "First machine-checked node of the repository; anchors the Lean side of the certificate pipeline."
+    },
+    "cert": "lean/Omega/Certs/CheckStrassen.lean",
+    "checker": "lean build (lake), pinned leanprover/lean4:v4.15.0; axiom dump dep/out/axioms_checkstrassen.txt",
+    "field": "Z",
+    "gaps": [],
+    "id": "C-0016",
+    "provenance": "formalization by us, 2026-11-07, of the scheme of ext:strassen1969",
+    "statement": "kernel-checked (Lean 4 core, v4.15.0, zero admitted tokens, zero axioms): the Strassen 7-term scheme, with the output assembly folded into the C-vectors, equals the 2x2 matrix multiplication tensor over Z on all 64 index triples of the full 4x4x4 space (theorem strassen7_full_space)",
+    "status": "machine-checked"
+  },
+  {
+    "annotation": {
+      "CLASS": "DEP-1",
+      "COMPLETE": "complete",
+      "DEPENDS": [
+        "C-0002"
+      ],
+      "EVIDENCE": "computation:certified:222_F2_border7_d2h1.json",
+      "GAP": "none",
+      "HYP": "none beyond the ring axioms of F_2[eps]/(eps^2)",
+      "ID": "C-0018",
+      "OWNER": "repo-maintainer",
+      "STATUS": "verified-numeric",
+      "WHAT": "Proper border-rank witness of order 1 and size 7 for the 2x2 matrix multiplication tensor over F_2.",
+      "WHY": "First WS2 artifact: the full loop search -> model -> exact re-verification -> certificate runs end to end."
+    },
+    "cert": "certs/border/222_F2_border7_d2h1.json",
+    "checker": "tools/check_certs.py",
+    "field": "F_2",
+    "gaps": [],
+    "id": "C-0018",
+    "provenance": "found by us, run 2026-11-07, search/enc.py --probe; solver only generated the candidate, the evidence is the exactly re-verified model",
+    "statement": "RBF2(<2,2,2>) <= 7 with a proper border witness: there are 7 triples of coefficient polynomials in F_2[eps]/(eps^2) with sum_r u_r v_r w_r = eps^1 T + O(eps^2); the witness was found by z3 search and re-verified by exact arithmetic, and re-checks in CI",
+    "status": "verified-numeric"
+  },
+  {
+    "annotation": {
+      "CLASS": "DEP-2",
+      "COMPLETE": "placeholder",
+      "DEPENDS": [],
+      "EVIDENCE": "none",
+      "GAP": "none",
+      "HYP": "none",
+      "ID": "C-0017",
+      "OWNER": "repo-maintainer",
+      "STATUS": "conjectural",
+      "WHAT": "Target statement on the subrank of the 2x2 matrix multiplication tensor.",
+      "WHY": "One of the three equivalent formulations of omega = 2 adopted as the north star of the program."
+    },
+    "cert": "none",
+    "checker": "none",
+    "field": "any",
+    "gaps": [],
+    "id": "C-0017",
+    "provenance": "RESEARCH_PLAN.md target T2",
+    "statement": "Q(<2,2,2>) = 4 (research target T2 of RESEARCH_PLAN.md)",
+    "status": "conjectural"
+  }
+]

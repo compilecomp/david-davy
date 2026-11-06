@@ -1,0 +1,16 @@
+# Pinned toolchain manifest. DEP&CC 2.0 Chapter 6.1.
+# Every entry is the exact version used to produce the artifacts in this commit.
+# Unpinned dependencies, mutable branches, and floating tags are banned.
+python: 3.12.16
+z3_solver_pip: 5.3.3        # pip distribution z3-solver; binary reports 5.3.3 via z3.get_version_string()
+mpmath: 1.3.0
+lean_toolchain: leanprover/lean4:v4.15.0   # see lean/lean-toolchain; CI mirrors this pin
+lake: bundled with lean_toolchain
+tex_distribution: not-applicable-at-seed-stage   # required (pinned) before any LaTeX paper build
+latex_engine: not-applicable-at-seed-stage
+macaulay2: not-installed-in-CI   # cas/ scripts are executed locally; outputs are committed with the run record
+sagemath: not-used
+lockfile_note: >
+  Versions were probed on 2026-11-07 on the build machine (x86-64 Linux, git 2.47.3).
+  A change to any entry requires re-running tools/check_certs.py, tools/dep_lint.py,
+  and the Lean build, and committing all regenerated artifacts in the same commit.

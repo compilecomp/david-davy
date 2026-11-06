@@ -1,0 +1,30 @@
+# Convention manifest. DEP&CC 2.0 Appendix B: every key fixed; "standard" is not a value.
+# Scope: all DEP-0 and DEP-1 regions of this repository.
+
+conv.log: 'log_2 written explicitly; conv.log means base 2 throughout; entropy H in bits'
+conv.natural_log: 'written ln'
+conv.includes_zero: true
+conv.positive: '> 0; nonnegative written explicitly'
+conv.increasing: 'non-strict; strictly increasing written explicitly'
+conv.ring: 'associative, unital, 1 != 0, not necessarily commutative'
+conv.field: 'F_q denotes the finite field with q elements when it exists; Q the rationals; Z the integers; R any field, named at each use'
+conv.algebra: 'associative, unital, over a commutative ring unless stated'
+conv.tensor.index: 'T in F^A x F^B x F^C is a function A -> B -> C -> F; for the matrix multiplication tensor <n,m,p> the index sets are A = [n]x[m], B = [m]x[p], C = [n]x[p] with [k] = {0,...,k-1}'
+conv.mm_entry: 'T[(i,j),(j2,k),(i2,k2)] = 1 if j = j2 and i = i2 and k = k2, else 0; this fixes the identification of <n,m,p> with multiplication of an n x m by an m x p matrix'
+conv.rank1_term: 'a term is a triple (u, v, w), u: A -> F, v: B -> F, w: C -> F; its tensor is (a,b,c) |-> u(a) v(b) w(c)'
+conv.restriction: 'S <= T means S is a restriction of T (S = phi(T) for a linear map phi on one factor composed with injections on the others)'
+conv.degeneration: 'X triangle-equal Y, written X le_Deg Y in ASCII, means X is a degeneration of Y: X lies in the closure of the orbit/limit class of Y; formal definition fixed at Omega/Tensor/Border.lean; until then the symbol appears only in DEP-2 prose'
+conv.rank: 'R(T) = tensor rank, the least r of an exact decomposition into rank-1 terms'
+conv.border: 'RB(T) = border rank over the declared field; witness model: sum_r u_r(x) v_r(x) w_r(x) = eps^h T(x) + O(eps^{h+1}) in k[eps]/(eps^d), h >= 1 for a proper border witness; prose glyph R-underline is reserved for border rank in this repository'
+conv.asymrank: 'RA(T) = asymptotic rank = lim_{N} R(T^{x N})^{1/N}; prose glyph R-tilde; formal definition fixed at Omega/Tensor/Basic.lean layer when Mathlib lands; until then RA appears only in DEP-2 prose or with a registered gap'
+conv.subrank: 'Q(T) = subrank = max over restrictions of T to a diagonal of rank-1 terms count; QA(T) = asymptotic subrank; both DEP-2 until formalized'
+conv.omega: 'omega = log_2 RA(<2,2,2>); equivalently inf over h with R(<n,n,n>) = O(n^h); any other exponent (rectangular alpha) is subscripted'
+conv.spectrum: 'Delta = asymptotic spectrum of tensors in the sense of ext:strassen1987; element F: monotone, additive, multiplicative, normalized; pinpoint audit pending under gap G-0003'
+conv.irreversibility: 'iota(T) = irreversibility invariant of ext:cvz2021barriers; definition audited only after G-0003 closes; until then used only in DEP-2 prose'
+conv.empty_sum: 0
+conv.empty_product: 1
+conv.zero_to_zero: '0^0 = 1 in combinatorial counts; stated per use elsewhere'
+conv.decimal_rounding: 'enclosures rounded outward (lower bound down, upper bound up); reported decimals carry a stated digit count and direction'
+conv.complexity.model: 'bit complexity on a multitape Turing machine unless a RAM model is named'
+conv.solver: 'SMT/SAT solver runs declare timeout in seconds; unknown and timeout are never reported as unsat (DEP&CC 2.0 Chapter 19.8)'
+conv.status: 'claim statuses are the closed set of DEP&CC 2.0 Chapter 5.4; see standards.md section 3.2 for the mapping from RESEARCH_PLAN.md draft vocabulary'

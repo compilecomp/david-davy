@@ -1,0 +1,91 @@
+# Reference registry. DEP&CC 2.0 Chapters 9 (Law 9) and 26.
+# Every ext:<key> justification token resolves here. Verification state is explicit;
+# "verified" means a repository member read the pinned locator on the stated date.
+references:
+  - key: strassen1969
+    authors: 'V. Strassen'
+    title: 'Gaussian elimination is not optimal'
+    venue: 'Numerische Mathematik 13, pages 354-356'
+    year: 1969
+    locator: 'algorithm section; page-level pinpoint pending'
+    verification: 'not read against source; scheme provenance pending G-0003'
+
+  - key: alderstrassen1981
+    authors: 'A. Alder, V. Strassen'
+    title: 'On the multiplicative complexity of algebras over finite fields'
+    venue: 'to be pinned (venue and volume pending G-0003)'
+    year: 1981
+    locator: 'pending'
+    verification: 'not read against source'
+
+  - key: laderman1976
+    authors: 'J. D. Laderman'
+    title: 'A noncommutative algorithm for multiplying 3x3 matrices using 23 multiplications'
+    venue: 'Bulletin of the American Mathematical Society 82(2), pages 246-248 (volume pending G-0003)'
+    year: 1976
+    locator: 'pending'
+    verification: 'not read against source'
+
+  - key: schonhage1981
+    authors: 'A. Schoenhage'
+    title: 'Partial and total matrix multiplication'
+    venue: 'SIAM Journal on Computing 10(2), pages 434-455'
+    year: 1981
+    locator: 'pending'
+    verification: 'not read against source; existence and role confirmed via ext:alman2026speedup'
+
+  - key: alman2026speedup
+    authors: 'J. Alman, B. Li'
+    title: 'Asymptotic Rank Speedup Theorems, Revisited'
+    venue: 'LIPIcs vol. 383, CCC 2026, pages 36:1-36:42; arXiv:2605.21738'
+    year: 2026
+    locator: 'arXiv:2605.21738v2, Theorem 1.1 (Asymptotic Sum Inequality)'
+    verification: 'abstract and Theorem 1.1 statement read from arXiv HTML v2 on 2026-11-07; PDF-level audit pending G-0003'
+
+  - key: alman2025asymmetry
+    authors: 'J. Alman, V. Vassilevska Williams, Y. Xu, Z. Xu, R. Zhou'
+    title: 'More Asymmetry Yields Faster Matrix Multiplication'
+    venue: 'SODA 2025; arXiv:2404.16349'
+    year: 2024
+    locator: 'arXiv:2404.16349v3, abstract (bound omega < 2.371177 with numerics of ext:dupont2026)'
+    verification: 'abstract read from arXiv on 2026-11-07; PDF-level audit pending G-0003'
+
+  - key: wxxz2023alpha
+    authors: 'V. Vassilevska Williams, Y. Xu, Z. Xu, R. Zhou'
+    title: 'New Bounds for Matrix Multiplication: from Alpha to Omega'
+    venue: 'SODA 2024; arXiv:2307.07970'
+    year: 2023
+    locator: 'arXiv:2307.07970v2, abstract (omega <= 2.371552; prior bound 2.371866 attributed to ext:dwz2023)'
+    verification: 'abstract read from arXiv on 2026-11-07; PDF-level audit pending G-0003'
+
+  - key: dwz2023
+    authors: 'R. Duan, H. Wu, R. Zhou'
+    title: 'Faster Matrix Multiplication via Asymmetric Hashing'
+    venue: 'FOCS 2023'
+    year: 2023
+    locator: 'pending'
+    verification: 'not read; known only through ext:wxxz2023alpha abstract attribution'
+
+  - key: dupont2026
+    authors: 'Dupont et al.'
+    title: 'numerical optimization advances cited by ext:alman2025asymmetry'
+    venue: 'arXiv:2608.16884'
+    year: 2026
+    locator: 'pending'
+    verification: 'not read; cited through ext:alman2025asymmetry abstract'
+
+  - key: cvz2021barriers
+    authors: 'M. Christandl, P. Vrana, J. Zuiddam'
+    title: 'Barriers for Fast Matrix Multiplication from Irreversibility'
+    venue: 'FOCS 2021 (venue pending G-0003)'
+    year: 2021
+    locator: 'pending'
+    verification: 'not read against source'
+
+  - key: strassen1987
+    authors: 'V. Strassen'
+    title: 'Relative bilinear complexity and matrix multiplication'
+    venue: 'Journal fuer die reine und angewandte Mathematik (volume pending G-0003)'
+    year: 1987
+    locator: 'pending'
+    verification: 'not read against source'

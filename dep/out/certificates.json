@@ -1,0 +1,15 @@
+{
+  "certificates": [
+    "certs/analysis/strassen_power_bound.json",
+    "certs/analysis/sumineq_mixed.json",
+    "certs/analysis/sumineq_uniform222.json",
+    "certs/border/222_F2_border7_d2h1.json",
+    "certs/decompositions/222_F2_7.json",
+    "certs/decompositions/222_Q_7.json",
+    "certs/decompositions/222sum122_Q_11.json",
+    "certs/decompositions/222sum222_Q_14.json",
+    "certs/flattenings/222_Q_rank4.json",
+    "certs/unsat/222_F2_rank_ge3.json"
+  ],
+  "generated": "by tools/ledger_lint.py"
+}

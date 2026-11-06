@@ -1,0 +1,75 @@
+# Symbol registry. DEP&CC 2.0 Chapters 7.1 and 32; Law 3.
+# One meaning per symbol per scope. Overloads are forbidden without a disambiguation rule.
+symbols:
+  - id: sym.R
+    glyph: R
+    sort: 'Tensor -> Nat (infinite if no finite decomposition)'
+    meaning: 'tensor rank per conv.rank'
+    scope: 'all regions'
+    declared_at: 'dep/conventions.yaml#conv.rank'
+  - id: sym.RB
+    glyph: 'R̲ (ASCII: RB)'
+    sort: 'Tensor -> Nat'
+    meaning: 'border rank per conv.border'
+    scope: 'all regions'
+    declared_at: 'dep/conventions.yaml#conv.border'
+  - id: sym.RA
+    glyph: 'R̃ (ASCII: RA)'
+    sort: 'Tensor -> Real'
+    meaning: 'asymptotic rank per conv.asymrank'
+    scope: 'DEP-2 prose and analysis certificates until formalized'
+    declared_at: 'dep/conventions.yaml#conv.asymrank'
+  - id: sym.Q
+    glyph: Q
+    sort: 'Tensor -> Nat'
+    meaning: 'subrank per conv.subrank; distinct from the field Q which is always written with a field tag such as R_Q'
+    scope: 'all regions; disambiguation rule: subrank Q always carries a tensor argument, the field Q never does'
+    declared_at: 'dep/conventions.yaml#conv.subrank'
+  - id: sym.omega
+    glyph: ω
+    sort: Real
+    meaning: 'matrix multiplication exponent per conv.omega'
+    scope: 'all regions'
+    declared_at: 'dep/conventions.yaml#conv.omega'
+  - id: sym.mmtensor
+    glyph: '⟨n,m,p⟩ (ASCII: <n,m,p>)'
+    sort: 'Nat x Nat x Nat -> Tensor over the named field'
+    meaning: 'matrix multiplication tensor per conv.mm_entry'
+    scope: 'all regions'
+    declared_at: 'dep/conventions.yaml#conv.mm_entry'
+  - id: sym.H
+    glyph: H
+    sort: 'probability vector on a finite set -> Real'
+    meaning: 'Shannon entropy in bits, H(p) = -sum p_i log_2 p_i'
+    scope: 'analysis certificates and papers'
+    declared_at: 'dep/conventions.yaml#conv.log'
+  - id: sym.tau
+    glyph: τ
+    sort: Real
+    meaning: 'the unique solution tau of sum_i (n_i m_i p_i)^tau = r in the asymptotic sum inequality (ext:alman2026speedup, Theorem 1.1); no other tau in this repository'
+    scope: 'certs/analysis and papers/02'
+    declared_at: 'dep/conventions.yaml#conv.solver'
+  - id: sym.iota
+    glyph: ι
+    sort: 'Tensor -> Real'
+    meaning: 'irreversibility of ext:cvz2021barriers; audited definition pending gap G-0003'
+    scope: 'DEP-2 prose only until G-0003 closes'
+    declared_at: 'dep/conventions.yaml#conv.irreversibility'
+  - id: sym.delta
+    glyph: Δ
+    sort: 'set of monotone multipitive tensor invariants'
+    meaning: 'asymptotic spectrum per conv.spectrum; audit pending gap G-0003'
+    scope: 'DEP-2 prose only until G-0003 closes'
+    declared_at: 'dep/conventions.yaml#conv.spectrum'
+  - id: sym.eij
+    glyph: 'e_ij'
+    sort: 'basis matrix of F^[n]x[m]'
+    meaning: 'the matrix with 1 in row i, column j and 0 elsewhere'
+    scope: 'analysis code and Lean checker'
+    declared_at: 'analysis/bilin.py#module-docstring'
+  - id: sym.degeneration
+    glyph: '⊴ (ASCII: le_Deg)'
+    sort: 'binary relation on tensors'
+    meaning: 'degeneration per conv.degeneration'
+    scope: 'DEP-2 prose until formalized'
+    declared_at: 'dep/conventions.yaml#conv.degeneration'

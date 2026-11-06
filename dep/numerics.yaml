@@ -1,0 +1,32 @@
+# Numerical manifest. DEP&CC 2.0 Chapter 18.2.
+# Every numeric claim produced by repository code is declared here or inside its certificate.
+numerics:
+  - id: num.tau_enclosure
+    claim: 'tau in [lo, hi] for the tau equation of each analysis certificate'
+    class: certified
+    method: 'mpmath bisection on the monotone function f(tau) = sum_i (n_i m_i p_i)^tau - r, working precision 60 bits, final interval rounded outward to 30 decimal digits'
+    library: 'mpmath 1.3.0 (dep/toolchain.lock)'
+    certificate: 'certs/analysis/sumineq_*.json (fields tau_lo, tau_hi, bound_symbolic, bound_decimal)'
+    verifier: 'tools/check_certs.py (recomputes the enclosure at higher precision, 80 bits, and checks containment and outward rounding)'
+    verifier_hash: 'sha256 recorded in the cert field verifier_sha256'
+    rounding: 'lower edge rounded down, upper edge rounded up, at the 30th decimal digit'
+    conditioning: 'f is strictly increasing in tau on [0, 1] for the instances shipped; derivative bounded away from 0, checked numerically at the enclosure endpoints'
+    failure_policy: 'verifier exits nonzero if the recomputed enclosure does not contain the stored one with margin'
+    seed: n/a
+    hardware: 'x86-64; no floating-point flags involved (Python doubles only inside mpmath ball logic)'
+    compiler_flags: n/a
+
+  - id: num.log2_7
+    claim: 'log_2(7) in [2.807354922057604, 2.807354922057605] (12 digits shown; full enclosure in cert)'
+    class: certified
+    method: 'mpmath ln at 80-bit working precision, ratio ln(7)/ln(2), outward rounding'
+    library: 'mpmath 1.3.0'
+    certificate: 'certs/analysis/strassen_power_bound.json'
+    verifier: 'tools/check_certs.py'
+    verifier_hash: 'sha256 recorded in the cert'
+    rounding: 'outward'
+    conditioning: 'exact function evaluation of a constant; no cancellation beyond division rounding'
+    failure_policy: 'verifier exits nonzero if the stored enclosure is not contained in the recomputed one'
+    seed: n/a
+    hardware: x86-64
+    compiler_flags: n/a
