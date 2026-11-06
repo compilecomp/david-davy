@@ -1,5 +1,1 @@
-# Axiom ledger extraction, DEP&CC 2.0 Chapter 19.2
-# toolchain: leanprover/lean4:v4.15.0
-# date: 2026-11-07
-# command: lake build (lakefile.toml, core-Lean-only profile, gap G-0006)
-info: ././././Omega/Certs/CheckStrassen.lean:102:0: 'strassen7_full_space' does not depend on any axioms
+'strassen7_full_space' does not depend on any axioms

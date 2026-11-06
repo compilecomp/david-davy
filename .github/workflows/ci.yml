@@ -45,5 +45,5 @@ jobs:
       - name: Archive axiom ledger extraction
         run: |
           mkdir -p dep/out
-          cd lean && lake build 2>&1 | grep -E "does not depend|depends on axioms" > ../dep/out/axioms_checkstrassen.txt || true
+          cd lean && lake build 2>&1 | grep -oE "'[A-Za-z0-9_.]+' does not depend on any axioms|depends on axioms:.*" > ../dep/out/axioms_checkstrassen.txt || true
           cd .. && cat dep/out/axioms_checkstrassen.txt

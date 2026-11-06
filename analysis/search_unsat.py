@@ -127,7 +127,6 @@ def main():
         "result": {"target_byte": tgt, "achieved_byte_count": len(achievable),
                    "target_achieved": False},
         "conclusion": "R_F2(<2,2,2>) >= 3",
-        "runtime_seconds": round(runtime, 3),
         "producer": {"module": "analysis/search_unsat.py", "arithmetic": "exact (booleans)"},
         "verifier": {"tool": "tools/check_certs.py",
                      "independence": "re-runs the enumeration from the cert parameters "

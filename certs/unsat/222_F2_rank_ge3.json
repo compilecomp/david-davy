@@ -14,7 +14,6 @@
     "target_achieved": false,
     "target_byte": 9511602980495818785
   },
-  "runtime_seconds": 4.725,
   "schema": "omega.cert.unsat/1",
   "search_space": {
     "assignments_reduced": "1 (empty) + 4096 (one term) + 4096^2 (two terms, as XOR pairs)",
